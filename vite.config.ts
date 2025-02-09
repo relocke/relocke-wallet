@@ -11,9 +11,9 @@ export default defineConfig({
   build: {
     outDir: "../dist/renderer", // This remains unchanged
     emptyOutDir: true,
-    // @ts-ignore
-    base: "./",
   },
+  base: "./",
+  publicDir: "./src/assets",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"), // Optional alias for src
