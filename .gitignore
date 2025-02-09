@@ -1,0 +1,52 @@
+# Node.js dependencies
+node_modules/
+
+# Build output (both React and Electron)
+dist/
+build/
+
+# Vite cache
+.vite/
+
+# Electron packaging
+*.asar
+*.dmg
+*.exe
+*.app
+
+# Electron binary files (specific to your platform)
+*.tar.gz
+*.deb
+*.rpm
+*.msi
+*.dmg
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# TypeScript build output (if using TypeScript)
+*.tsbuildinfo
+
+# Environment variables
+.env
+
+# npm package lock files (for a consistent environment, you may decide to track these)
+# package-lock.json
+# yarn.lock
+
+# IDE and editor folders
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Coverage output (if using a testing tool like Jest or Mocha)
+coverage/
+
+# Other system-specific files
+*.swp
+*.swo
