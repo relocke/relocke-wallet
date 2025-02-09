@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import ReLockeIcon from "./icons/relocke-icon.js";
 
 const App = () => {
   return (
     <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <h1>ReLocke</h1>
+      <ReLockeIcon />
     </div>
   );
 };

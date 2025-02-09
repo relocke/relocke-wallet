@@ -5,25 +5,29 @@
   "scripts": {
     "dev": "concurrently \"vite\" \"tsc -p tsconfig.main.json --watch\" \"wait-on tcp:5173 && cross-env NODE_ENV=development electron .\"",
     "build": "vite build && tsc -p tsconfig.main.json",
+    "icons": "electron-icon-builder --input=src/assets/app-icon.png --output=src/assets --flatten",
     "package": "electron-builder"
   },
   "author": "pur3miish",
   "description": "ReLocke wallet",
   "build": {
+    "productName": "ReLocke Wallet",
     "appId": "com.relocke.wallet",
     "files": [
       "dist/**/*",
-      "node_modules/**/*",
       "package.json"
     ],
     "mac": {
-      "target": "dmg"
+      "target": "dmg",
+      "icon": "src/assets/icons/icon.icns"
     },
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon": "src/assets/icons/icon.ico"
     },
     "linux": {
-      "target": "AppImage"
+      "target": "AppImage",
+      "icon": "src/assets/icons/1024x1024.png"
     },
     "directories": {
       "output": "dist",
@@ -35,11 +39,14 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
     "concurrently": "^9.1.2",
     "cross-env": "^7.0.3",
     "electron": "^34.1.1",
     "electron-builder": "^25.1.8",
+    "electron-icon-builder": "^2.0.1",
     "electron-packager": "^17.1.2",
     "typescript": "^5.7.3",
     "vite": "^6.1.0",
