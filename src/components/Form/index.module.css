@@ -1,0 +1,52 @@
+.form {
+  display: contents;
+}
+
+.msgContainer > span {
+  overflow: scroll;
+}
+
+.msgContainer {
+  text-align: left;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--px-10);
+  padding: var(--px-8) var(--px-16);
+  padding-left: var(--px-20);
+  border-radius: var(--border-radius-4);
+  max-width: var(--px-512);
+  color: hsl(var(--neutral-1900));
+  background: hsl(var(--neutral-500));
+  margin: var(--px-8);
+  font-weight: 400;
+}
+
+#absolute button {
+  border-radius: var(--border-radius-4);
+  padding: var(--px-8);
+}
+
+#absolute button:focus,
+#absolute button:hover {
+  background: hsl(var(--neutral-900));
+}
+
+#absolute {
+  z-index: 999999;
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  animation: slideIn 0.35s ease-out forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

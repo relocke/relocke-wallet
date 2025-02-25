@@ -1,0 +1,15 @@
+.container {
+  max-width: var(--px-512);
+  width: 100%;
+  display: inline-block;
+  background: hsla(var(--base-100));
+  border-radius: var(--border-radius-8);
+  box-shadow: 0 0 5px hsla(var(--grey-900), var(--alpha-background-heavy));
+}
+
+@media (prefers-color-scheme: dark) {
+  .container {
+    background: hsla(var(--base-100), var(--alpha-background-heavy));
+    border: solid 1px hsla(var(--grey-300), var(--alpha-background-heavy));
+  }
+}

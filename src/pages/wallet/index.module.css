@@ -1,0 +1,174 @@
+.container {
+  position: relative;
+  color: hsla(var(--neutral-100));
+}
+
+.btn {
+  display: grid;
+  place-items: center center;
+  background: hsl(var(--neutral-2000));
+  width: var(--px-48);
+  height: var(--px-48);
+  border-radius: var(--border-radius-12);
+  font-size: var(--px-20);
+}
+
+.container nav {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: var(--px-10);
+  position: sticky;
+  padding: var(--px-10);
+  width: 100%;
+  top: 0;
+  z-index: 999;
+}
+
+.walletKeysText {
+  font-size: var(--px-20);
+  font-weight: 300;
+  color: hsla(var(--blue-500));
+  letter-spacing: 1px;
+}
+
+.container main {
+  padding: 0 0 var(--px-96);
+  color: hsl(var(--neutral-1300));
+  padding: 0 var(--px-16) var(--px-96);
+}
+
+.keyList {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--px-24) var(--px-16);
+}
+
+.keyList li {
+  display: contents;
+  line-height: var(--line-height-medium);
+  margin: 0;
+  padding: 0;
+  padding: 0;
+}
+
+.keyList li div {
+  display: flex;
+  gap: var(--px-10);
+  font-size: var(--px-20);
+}
+
+.addKeyContainer {
+  display: flex;
+  position: sticky;
+  gap: var(--px-8);
+  bottom: var(--px-48);
+  border-radius: var(--border-radius-4);
+  padding: 0 var(--px-10);
+}
+
+.addKeyContainer input,
+.addKeyContainer button {
+  box-shadow: 0 0 5px hsla(var(--grey-900), var(--alpha-background-heavy));
+  border-radius: var(--border-radius-12);
+}
+
+.addKeyContainer form {
+  margin-bottom: var(--px-32);
+}
+.addKeyContainer button {
+  display: grid;
+  place-items: center center;
+  padding: 0 var(--px-10);
+  background: hsl(var(--neutral-200));
+  color: hsla(var(--neutral-2000));
+  font-size: var(--px-20);
+  width: 50px;
+  height: 50px;
+}
+
+.modalContainer > div {
+  padding: var(--px-10) var(--px-24) var(--px-20);
+}
+
+.modalContainer {
+  padding: var(--px-10) var(--px-10) var(--px-24);
+  border-radius: var(--border-radius-4);
+  background: hsl(var(--base-200));
+  --max-width: var(--px-512);
+  color: hsla(var(--neutral-500));
+}
+
+.modalContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--px-4);
+}
+.modalContainer form button {
+  width: 100%;
+}
+.modalContainer h1 {
+  margin-bottom: var(--px-32);
+  font-size: var(--px-24);
+  line-height: var(--line-height-medium);
+}
+
+.successContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--px-16);
+  animation: popIn 0.3s ease-in forwards; /* Apply animation */
+  font-weight: 400;
+  max-width: 450px;
+  border-top: solid 1px hsl(var(--green-300));
+  border-bottom: solid 1px hsl(var(--green-500));
+  margin-bottom: var(--px-24);
+  color: hsl(var(--green-200));
+  background: hsl(var(--green-400));
+  padding: var(--px-10);
+  border-radius: var(--border-radius-4);
+  box-shadow: 0 0 4px hsl(var(--grey-900), var(--alpha-background-heavy));
+}
+
+.successContainer svg {
+  font-size: var(--px-24);
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.9); /* Start smaller */
+  }
+  100% {
+    transform: scale(1); /* End at normal size */
+  }
+}
+
+.deleteBtn {
+  transition: all fill 0.2s, color 0.2s;
+}
+
+.deleteBtn:hover,
+.deleteBtn:focus {
+  color: hsl(var(--red-600));
+}
+
+.privateKeyInput {
+  background: hsl(var(--base-100)) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .privateKeyInput {
+    background: hsl(var(--base-300)) !important;
+  }
+}
+
+.noKeyMessage {
+  padding-top: var(--px-24);
+  font-size: var(--px-16);
+  width: 100%;
+  text-align: center;
+
+  display: inline-block;
+}

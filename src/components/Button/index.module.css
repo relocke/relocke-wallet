@@ -1,0 +1,10 @@
+.button {
+  font-weight: 400;
+  border-radius: var(--border-radius-4);
+  padding: var(--px-8);
+}
+
+.button:hover,
+.button:focus {
+  background: hsl(var(--neutral-200), var(--alpha-background-light));
+}

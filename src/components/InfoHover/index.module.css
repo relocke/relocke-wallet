@@ -1,0 +1,22 @@
+.infoContainer {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.container {
+  position: absolute;
+  z-index: 999;
+
+  top: var(--top-position, 100%);
+  right: var(--right-position, 0%);
+  left: var(--left-position, initial);
+  background: hsl(var(--neutral-200));
+  color: hsl(var(--neutral-1900));
+  padding: var(--px-4) var(--px-8);
+  font-weight: 500;
+  font-size: x-small !important;
+  width: auto;
+  border-radius: var(--border-radius-4);
+}

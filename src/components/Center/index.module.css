@@ -1,0 +1,23 @@
+.centerContainer {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.centerContainer > div {
+  text-align: left;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  max-width: var(--max-width, var(--px-640));
+}
+
+.centerContainer h1 {
+  font-size: x-large;
+}
+
+.centerContainer {
+  font-size: medium;
+}

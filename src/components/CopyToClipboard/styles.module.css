@@ -1,0 +1,8 @@
+.btnContainer[type="button"]:focus,
+.btnContainer [aria-label="Copy"]:hover {
+  color: hsl(var(--neutral-100));
+}
+
+.btnContainer [aria-label="Success"] {
+  color: hsl(var(--green-400));
+}

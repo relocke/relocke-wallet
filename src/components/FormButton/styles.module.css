@@ -1,0 +1,21 @@
+.formbtn[type="submit"] {
+  letter-spacing: 1px;
+  display: inline-flex;
+  gap: var(--px-8);
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--base-100));
+  background: hsl(var(--neutral-400));
+}
+
+.formbtn {
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  color: hsl(227, 14%, 13%);
+  padding: var(--px-10) 0;
+  cursor: pointer;
+  border-radius: var(--border-radius-4);
+}
+
+.formbtn small {
+  display: contents;
+}

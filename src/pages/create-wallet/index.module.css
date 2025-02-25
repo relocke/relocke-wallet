@@ -1,0 +1,72 @@
+.container {
+  --max-width: var(--px-512);
+  padding: var(--px-10);
+  display: grid;
+  place-items: center center;
+  height: 100vh;
+  color: hsla(var(--neutral-400));
+  height: 60vh;
+}
+
+.container div {
+  border-radius: var(--border-radius-8);
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--px-16);
+  max-width: var(--px-512);
+  width: 100%;
+  background: hsl(var(--base-100), var(--alpha-tertiary));
+  padding: var(--px-32);
+
+  box-shadow: 0 0 10px hsl(var(--grey-900), var(--alpha-background-heavy));
+}
+
+.container h1 {
+  font-size: var(--px-24);
+}
+
+@media (prefers-color-scheme: dark) {
+  .container div {
+    background: hsl(var(--base-100), var(--alpha-background-heavy));
+    border: solid 1px hsl(var(--grey-500), var(--alpha-background-heavy));
+  }
+}
+
+.modalContainer {
+  padding: var(--px-32);
+  background: hsla(var(--base-100));
+  border-radius: var(--border-radius-4);
+}
+
+.modalContainer form button[type="submit"] {
+  color: hsla(var(--red-200), var(--alpha-secondary)) !important;
+  border: solid 1px hsl(var(--red-500)) !important;
+  background: hsl(var(--red-700)) !important;
+}
+
+.deleteButtonCnt {
+  margin-top: var(--px-10);
+  display: flex;
+  gap: var(--px-10);
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav {
+  padding: var(--px-10) var(--px-24);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--px-10);
+  color: hsl(var(--neutral-800));
+}
+
+.flex {
+  display: flex;
+  gap: var(--px-16);
+}
+
+.flex a {
+  background: var(--grey-100);
+}

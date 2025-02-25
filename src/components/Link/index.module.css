@@ -1,0 +1,13 @@
+.link:hover,
+.link:focus {
+  background: hsla(var(--neutral-1100), var(--alpha-background-heavy));
+}
+
+.link {
+  color: hsla(var(--neutral-500));
+  background: hsla(var(--neutral-1900), var(--alpha-background-heavy));
+  transition: background 0.2s;
+  border-radius: var(--border-radius-4);
+  text-decoration: none;
+  padding: var(--px-10);
+}

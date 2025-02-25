@@ -1,0 +1,38 @@
+.container {
+  position: relative;
+}
+.menuDropDown {
+  margin-top: var(--px-4);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  top: var(--top, 100%);
+  right: var(--right, 0%);
+  left: var(--left, initial);
+  bottom: var(--bottom, initial);
+  box-shadow: 0 0 5px hsla(var(--grey-900), var(--alpha-background-heavy));
+  background: hsl(var(--base-100));
+  border-radius: var(--border-radius-4);
+  padding: var(--px-4);
+  animation: pop 0.25s ease;
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  80% {
+    transform: scale(1.01);
+    opacity: 1;
+  }
+}
+
+.container {
+  position: relative;
+}
+
+.container button[aria-expanded="true"] {
+  pointer-events: none;
+}

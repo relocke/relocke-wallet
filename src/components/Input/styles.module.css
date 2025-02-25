@@ -1,0 +1,18 @@
+.input {
+  display: block;
+  width: 100%;
+  font-size: var(--px-16);
+  border-radius: var(--border-radius-4);
+  padding: var(--px-16) var(--px-20);
+  color: hsl(var(--neutral-300));
+  border: none;
+  outline: none;
+  transition: border 0.2s;
+  background: hsl(var(--background, var(--base-300)));
+}
+
+input::placeholder {
+  letter-spacing: 1px;
+  color: hsl(var(--neutral-1300));
+  font-weight: thin;
+}

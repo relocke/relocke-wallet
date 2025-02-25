@@ -49,28 +49,13 @@
   --alpha-background-xlight: 0.03;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    /* background: hsl(180, 3%, 7%);
-      color: white; */
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  body {
-    /* background: white;
-      color: black; */
-  }
-}
-
 body {
   margin: 0;
-  padding: var(--px-24);
+  padding: 0;
   font-family: var(--font-family);
-  font-weight: 300;
-  font-size: 16px;
-  font-family: var(--font-family);
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  background: hsl(var(--base-200));
 }
 
 a,
@@ -84,46 +69,89 @@ h3,
 h4,
 h5,
 h6 {
+  background: none;
   color: currentColor;
   padding: 0;
   margin: 0;
   line-height: inherit;
-  background: transparent;
   border: none;
   font-family: inherit;
   font-weight: inherit;
   font-size: inherit;
   outline: none;
-  letter-spacing: 1px;
 }
 
-input,
-label,
-input::placeholder {
-  letter-spacing: 1px;
-}
-
-input {
-  padding: var(--px-16);
-  display: block;
-  width: 100%;
-  border-radius: var(--border-radius-4);
-  border: solid 2px currentColor;
-}
-
-button {
-  transition: background 0.2s, color 0.2s, transform 0.2s;
+button,
+a {
   cursor: pointer;
-  color: currentColor;
-  border-radius: var(--border-radius-4);
 }
 
+a:active,
 button:active {
   transform: scale(0.98);
 }
 
-.container {
-  display: inline-block;
-  max-width: var(--px-386);
+@keyframes LoadingIconAnimation {
+  0% {
+    opacity: 0.2;
+    height: 10px;
+    transform: translate(0, 10px);
+  }
+  50% {
+    opacity: 1;
+    height: 20px;
+    transform: translate(0, 5px);
+  }
+  100% {
+    opacity: 0.2;
+    height: 10px;
+    transform: translate(0, 10px);
+  }
+}
+
+/* Apply animations to elements */
+.LoadingIcon {
+  fill: currentColor;
+  transition: all ease;
+  width: 4;
+}
+
+.LoadingIcon > rect {
+  animation-name: LoadingIconAnimation;
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.LoadingIcon > rect:first-child {
+  animation-delay: 0s;
+}
+.LoadingIcon > rect:nth-child(1) {
+  animation-delay: 0.15s;
+}
+.LoadingIcon > rect:last-child {
+  animation-delay: 0.3s;
+}
+
+.centerContainer {
+  position: relative;
+  text-align: center;
   width: 100%;
+  box-sizing: border-box;
+  padding: 0 var(--px-16);
+}
+
+.centerContainer > div {
+  text-align: left;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+}
+
+.centerContainer h1 {
+  font-size: x-large;
+}
+
+.centerContainer {
+  font-size: medium;
 }

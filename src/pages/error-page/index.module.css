@@ -1,0 +1,36 @@
+.container > div {
+  display: grid;
+  place-items: center center;
+  height: 70vh;
+}
+
+.container {
+  padding: var(--px-10);
+}
+
+.error {
+  position: relative;
+  padding: var(--px-10);
+  display: inline-grid;
+  background: hsl(var(--base-100));
+  place-items: center center;
+  max-width: var(--px-512);
+  width: 100%;
+  border-radius: var(--border-radius-8);
+  align-content: center;
+  gap: var(--px-20);
+  text-align: center;
+  height: var(--px-256);
+}
+.error svg {
+  font-size: var(--px-64);
+  color: hsl(var(--orange-500));
+}
+.error p {
+  font-size: var(--px-20);
+  color: hsla(var(--neutral-1200));
+  line-height: var(--line-height-medium);
+  font-weight: 300;
+  display: inline-block;
+  max-width: var(--px-386);
+}

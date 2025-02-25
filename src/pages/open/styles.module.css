@@ -1,0 +1,91 @@
+.container {
+  position: grid;
+  place-items: center center;
+
+  position: relative;
+  text-align: left;
+  display: grid;
+  place-items: center center;
+
+  color: hsl(var(--neutral-100));
+  padding: var(--px-8);
+}
+.link {
+  display: flex;
+  justify-content: center;
+  gap: var(--px-10);
+}
+
+.container2 {
+  padding: var(--px-32);
+}
+.container2 p {
+  color: hsl(var(--grey-600));
+  font-size: var(--px-16);
+}
+.container2 h1 {
+  font-size: var(--px-24);
+  line-height: var(--line-height-medium);
+  margin: var(--px-4) 0 var(--px-20);
+}
+
+.container form input {
+  background: hsla(var(--base-300));
+}
+
+.container form {
+  margin: var(--px-32) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--px-8);
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.formContainer input {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.openWalletBtn {
+  color: hsl(var(--neutral-100));
+  background: hsl(var(--base-300));
+  border-top-right-radius: var(--border-radius-4);
+  border-bottom-right-radius: var(--border-radius-4);
+  margin-left: 1px;
+  display: grid;
+  place-items: center center;
+  font-size: var(--px-24) !important;
+  padding: 0 var(--px-8) !important;
+}
+
+.createNewWalletLink {
+  padding: var(--px-10);
+  text-decoration: none;
+  border-radius: var(--border-radius-4);
+}
+
+.createNewWalletLink:focus,
+.createNewWalletLink:hover {
+  color: hsl(var(--blue-200));
+}
+
+.nav {
+  padding: var(--px-10) var(--px-24);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--px-10);
+  color: hsl(var(--neutral-800));
+}
+
+.flex {
+  display: flex;
+  gap: var(--px-16);
+}
+
+.flex a {
+  background: var(--grey-100);
+}

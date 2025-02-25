@@ -1,12 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import ReLockeIcon from "./icons/relocke-icon.js";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import CreateNewWallet from "./pages/create-wallet";
+import Open from "./pages/open";
+import Wallet from "./pages/wallet/index.js";
+import DeleteWallet from "./pages/delete-wallet";
 
 const App = () => {
   return (
-    <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <ReLockeIcon />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Open />} />
+        <Route path="/create-wallet" element={<CreateNewWallet />} />
+        <Route path="/delete-wallet" element={<DeleteWallet />} />
+        <Route path="/wallet" element={<Wallet />} />
+      </Routes>
+    </Router>
   );
 };
 
