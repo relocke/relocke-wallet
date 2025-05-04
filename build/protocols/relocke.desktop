@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=ReLocke Wallet
+Comment=Open ReLocke Protocol
+Exec={appPath}/ReLocke Wallet --relocke-url %u
+Type=Application
+Terminal=false
+MimeType=x-scheme-handler/relocke;
