@@ -14,21 +14,33 @@ jobs:
     timeout-minutes: 30
 
     steps:
+      # Checkout the code from the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
+      # Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # Build the application (renderer + main process)
       - name: Build app (renderer + main)
         run: npm run build
 
+      # Ensure the dist folder exists and package the app with electron-builder
       - name: Build and publish release
-        run: npx electron-builder --publish always
+        run: |
+          if [ -d "dist" ]; then
+            echo "dist folder exists"
+          else
+            echo "dist folder does not exist, creating it"
+            mkdir dist
+          fi
+          npx electron-builder --publish always
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

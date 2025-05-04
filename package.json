@@ -6,7 +6,9 @@
     "dev": "concurrently \"vite\" \"tsc -p tsconfig.main.json --watch\" \"wait-on tcp:5173 && cross-env NODE_ENV=development electron .\"",
     "build": "vite build && tsc -p tsconfig.main.json",
     "icons": "electron-icon-builder --input=src/assets/icons/app-icon.png --output=src/assets --flatten",
-    "package": "electron-builder"
+    "package": "electron-builder",
+    "dist": "npm run build && electron-builder",
+    "release": "npm run dist && git tag -a v$(node -p -e \"require('./package.json').version\") -m \"Release $(node -p -e \"require('./package.json').version\")\" && git push --tags"
   },
   "author": "pur3miish",
   "description": "ReLocke wallet",
