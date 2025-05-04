@@ -1,6 +1,6 @@
 {
   "name": "relocke-wallet",
-  "version": "1.0.0",
+  "version": "1.0.0-rc.1",
   "main": "dist/main.js",
   "scripts": {
     "dev": "concurrently \"vite\" \"tsc -p tsconfig.main.json --watch\" \"wait-on tcp:5173 && cross-env NODE_ENV=development electron .\"",
