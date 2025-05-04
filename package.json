@@ -10,7 +10,7 @@
     "dist": "npm run build && electron-builder",
     "release": "npm run dist && git tag -a v$(node -p -e \"require('./package.json').version\") -m \"Release $(node -p -e \"require('./package.json').version\")\" && git push --tags"
   },
-  "author": "pur3miish",
+  "author": "pur3miish <pur3miish@me.com>",
   "description": "ReLocke wallet",
   "build": {
     "productName": "ReLocke Wallet",
