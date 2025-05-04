@@ -49,6 +49,39 @@ function bringWindowToFront() {
   } else createWindow();
 }
 
+server.post("/get-keys", async (req: Request, res: Response) => {
+  try {
+    if (!win) throw new Error("No window instance found");
+    if (!wallet.isLoggedIn()) {
+      bringWindowToFront();
+      await dialog.showMessageBox(win, {
+        type: "info",
+        title: "Open wallet",
+        message: "Please open your wallet.",
+        buttons: ["OK"],
+      });
+
+      throw new Error("Wallet needs to be opened before signing transactions.");
+    }
+    win.setAlwaysOnTop(false);
+
+    if (!req.body)
+      throw new Error("Expected public key list and a message digest sha256.");
+
+    const public_keys = await wallet.getPublicKeys();
+
+    res.json({ success: true, public_keys: public_keys.slice(1) });
+  } catch (err: unknown) {
+    if (err instanceof Error)
+      return res.status(400).json({
+        success: false,
+        message: err.message,
+      });
+
+    res.status(500).send({ message: "unknow error has occurred" });
+  }
+});
+
 server.post("/sign", async (req: Request, res: Response) => {
   bringWindowToFront();
   try {
@@ -95,6 +128,7 @@ server.post("/sign", async (req: Request, res: Response) => {
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
+
 app.on("activate", bringWindowToFront);
 app.whenReady().then(() => {
   protocol.handle("relocke", () => {

@@ -43,3 +43,8 @@
   gap: var(--px-8);
   padding: var(--px-32);
 }
+
+.DeleteInput {
+  background: hsla(var(--neutral-1000), var(--alpha-background-light));
+  border: solid 1px hsla(var(--neutral-1000), var(--alpha-background-heavy));
+}

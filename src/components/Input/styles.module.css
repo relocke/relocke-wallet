@@ -8,7 +8,11 @@
   border: none;
   outline: none;
   transition: border 0.2s;
-  background: hsl(var(--background, var(--base-300)));
+  background: hsl(var(--background, var(--base-100)));
+  margin: 2px 0;
+  &:focus {
+    outline: solid 2px black;
+  }
 }
 
 input::placeholder {

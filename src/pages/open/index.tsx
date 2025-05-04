@@ -16,7 +16,7 @@ import "../../types/cssModules.d.ts";
 import styles from "./styles.module.css";
 import ErrorPage from "../error-page/index.tsx";
 import DeleteIcon from "../../icons/delete-icon.tsx";
-import HoverDiv from "../../components/HoverDiv";
+import appIcon from "../../assets/icons/1024x1024.png";
 
 export default function LoginPage() {
   const [pass, setPass] = React.useState("");
@@ -49,17 +49,39 @@ export default function LoginPage() {
   }
 
   return (
-    <ErrorBoundary fallback={<ErrorPage />}>
-      {!wallet && (
+    <>
+      {wallet && (
+        <nav className={styles.nav}>
+          <MenuProvider>
+            <MenuButton>
+              <SettingsIcon />
+            </MenuButton>
+            <MenuDropDown>
+              <Link href="#delete-wallet" className={styles.link}>
+                <DeleteIcon />
+                <small>Delete&nbsp;wallet</small>
+              </Link>
+            </MenuDropDown>
+          </MenuProvider>
+        </nav>
+      )}
+      <div className={styles.grid}>
         <div>
-          <div>
-            <nav className={styles.nav}>
-              <ReLockeIcon />
-            </nav>
-            <div className={styles.container}>
-              <HoverDiv className={styles.container2}>
-                <h1>Create New Wallet</h1>
+          <ErrorBoundary fallback={<ErrorPage />}>
+            <div className={styles.center}>
+              <img
+                // src={"/icons/1024x1024.png"}
+                src={appIcon}
+                className={styles.img}
+                alt="ReLocke Wallet Icon"
+              />
+              <div>
+                <ReLockeIcon />
+              </div>
+            </div>
 
+            {!wallet && (
+              <div className={styles.container}>
                 <Form action={handleCreateNew}>
                   <Input
                     minLength={6}
@@ -84,47 +106,30 @@ export default function LoginPage() {
                   />
                   <FormButton>Create wallet</FormButton>
                 </Form>
-              </HoverDiv>
-            </div>
-          </div>
-        </div>
-      )}
+              </div>
+            )}
 
-      {wallet && (
-        <div>
-          <nav className={styles.nav}>
-            <ReLockeIcon />
-            <MenuProvider>
-              <MenuButton>
-                <SettingsIcon />
-              </MenuButton>
-              <MenuDropDown>
-                <Link href="#delete-wallet" className={styles.link}>
-                  <DeleteIcon />
-                  <small>Delete&nbsp;wallet</small>
-                </Link>
-              </MenuDropDown>
-            </MenuProvider>
-          </nav>
-          <div className={styles.container}>
-            <HoverDiv className={styles.container2}>
-              <h1>Open Wallet</h1>
-              <Form action={handleLogin}>
-                <Input
-                  minLength={6}
-                  onChange={(e) => setPass(e.target.value)}
-                  value={pass}
-                  required
-                  placeholder="Enter wallet password"
-                  name="password"
-                  type="password"
-                />
-                <FormButton>Open wallet →</FormButton>
-              </Form>
-            </HoverDiv>
-          </div>
+            {wallet && (
+              <div>
+                <div className={styles.container}>
+                  <Form action={handleLogin}>
+                    <Input
+                      onChange={(e) => setPass(e.target.value)}
+                      value={pass}
+                      required
+                      placeholder="Enter wallet password"
+                      name="password"
+                      type="password"
+                      minLength={6}
+                    />
+                    <FormButton>Open wallet →</FormButton>
+                  </Form>
+                </div>
+              </div>
+            )}
+          </ErrorBoundary>
         </div>
-      )}
-    </ErrorBoundary>
+      </div>
+    </>
   );
 }

@@ -88,6 +88,18 @@
   height: 50px;
 }
 
+.changePassContainerSuccess,
+.changePassContainer {
+  display: grid;
+  place-items: center center;
+  width: 100%;
+}
+.changePassContainer2 {
+  display: inline-block;
+  width: 100%;
+  max-width: var(--px-386);
+}
+
 .modalContainer > div {
   padding: var(--px-10) var(--px-24) var(--px-20);
 }
@@ -114,26 +126,9 @@
   line-height: var(--line-height-medium);
 }
 
-.successContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--px-16);
-  animation: popIn 0.3s ease-in forwards; /* Apply animation */
-  font-weight: 400;
-  max-width: 450px;
-  border-top: solid 1px hsl(var(--green-300));
-  border-bottom: solid 1px hsl(var(--green-500));
-  margin-bottom: var(--px-24);
-  color: hsl(var(--green-200));
-  background: hsl(var(--green-400));
-  padding: var(--px-10);
-  border-radius: var(--border-radius-4);
-  box-shadow: 0 0 4px hsl(var(--grey-900), var(--alpha-background-heavy));
-}
-
-.successContainer svg {
-  font-size: var(--px-24);
+.successTick {
+  font-size: var(--px-48) !important;
+  color: hsl(var(--green-400));
 }
 
 @keyframes popIn {
@@ -171,4 +166,9 @@
   text-align: center;
 
   display: inline-block;
+}
+
+.successMsg {
+  line-height: 2;
+  font-size: var(--px-20);
 }

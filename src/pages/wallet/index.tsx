@@ -1,5 +1,5 @@
 import ReLockeIcon from "../../icons/relocke-icon";
-import React, { useEffect, useState, useTransition } from "react";
+import React from "react";
 import LogoutIcon from "../../icons/logout";
 import CopyToClipBoardButton from "../../components/CopyToClipboard";
 import ShieldIcon from "../../icons/shield-icon";
@@ -15,7 +15,46 @@ import Button from "../../components/Button";
 import TickIconWithCircle from "../../icons/tick-icon-with-circle";
 import useWallet from "./hooks";
 import style from "./index.module.css";
-import HoverDiv from "../../components/HoverDiv";
+
+const query = /* GraphQL */ `
+  mutation (
+    $account: name!
+    $permission: name! = "active"
+    $parent: name! = "owner"
+  ) {
+    jungle {
+      serialize_transaction(
+        actions: [
+          {
+            eosio: {
+              updateauth: {
+                account: $account
+                permission: $permission
+                parent: $parent
+                auth: {
+                  accounts: []
+                  keys: [
+                    {
+                      key: "PUB_K1_6bz9b2rmwB99kmHak87WD3cpE2Eyguk4Dv9nXetDvr1GCoF8ts"
+                      weight: 1
+                    }
+                  ]
+                  waits: []
+                  threshold: 1
+                }
+                authorization: { actor: $account }
+              }
+            }
+          }
+        ]
+      ) {
+        transaction_body
+        transaction_header
+        chain_id
+      }
+    }
+  }
+`;
 
 export default function WalletPage() {
   const wallet = useWallet();
@@ -33,46 +72,57 @@ export default function WalletPage() {
             <ShieldIcon />
           </ModalButton>
           <Modal>
-            {wallet.success && (
-              <div className={style.successContainer}>
-                <TickIconWithCircle />
-                <span>{wallet.success}</span>
-              </div>
-            )}
             <div className={style.modalContainer}>
-              <ModalButton>X</ModalButton>
-              <div>
-                <h1>Update Wallet Password</h1>
-                <Form action={wallet.handleUpdatePassword}>
-                  <Input
-                    name="password"
-                    placeholder="Current password"
-                    type="password"
-                    required
-                  />
-                  <Input
-                    minLength={6}
-                    required
-                    name="new-password"
-                    placeholder="Enter new password"
-                    type="password"
-                    onChange={(e) => wallet.setPassword(e.target.value)}
-                  />
-                  <Input
-                    minLength={6}
-                    required
-                    name="repeate-password"
-                    placeholder="Repeate password"
-                    onChange={(e) => {
-                      if (e.target.value == wallet.password)
-                        e.target.setCustomValidity("");
-                      else e.target.setCustomValidity("Passwords do not match");
-                    }}
-                    type="password"
-                  />
-                  <FormButton>Update password</FormButton>
-                </Form>
-              </div>
+              <ModalButton onClick={() => wallet.setSuccess(false)}>
+                X
+              </ModalButton>
+
+              {wallet.success && (
+                <div className={style.changePassContainerSuccess}>
+                  <TickIconWithCircle className={style.successTick} />
+                  <p className={style.successMsg}>{wallet.success}</p>
+                </div>
+              )}
+
+              {!wallet.success && (
+                <div className={style.changePassContainer}>
+                  <div className={style.changePassContainer2}>
+                    <h1>Change Wallet Password</h1>
+                    <Form action={wallet.handleUpdatePassword}>
+                      <Input
+                        name="password"
+                        placeholder="Current password"
+                        type="password"
+                        required
+                      />
+                      <Input
+                        minLength={6}
+                        required
+                        name="new-password"
+                        placeholder="Enter new password"
+                        type="password"
+                        onChange={(e) => wallet.setPassword(e.target.value)}
+                      />
+                      <Input
+                        minLength={6}
+                        required
+                        name="repeate-password"
+                        placeholder="Repeate password"
+                        onChange={(e) => {
+                          if (e.target.value == wallet.password)
+                            e.target.setCustomValidity("");
+                          else
+                            e.target.setCustomValidity(
+                              "Passwords do not match"
+                            );
+                        }}
+                        type="password"
+                      />
+                      <FormButton>Update password</FormButton>
+                    </Form>
+                  </div>
+                </div>
+              )}
             </div>
           </Modal>
         </ModalProvider>
@@ -84,7 +134,7 @@ export default function WalletPage() {
         <main>
           {!wallet.public_keys?.length && (
             <div className={style.noKeyMessage}>
-              <p>Your wallet currently has no private keys added.</p>
+              <p>Your wallet currently has no private keys.</p>
             </div>
           )}
           <ul className={style.keyList}>
@@ -114,7 +164,7 @@ export default function WalletPage() {
             <Input
               className={style.privateKeyInput}
               type="password"
-              placeholder="Enter new private Key"
+              placeholder="Add private Key"
               name="wif_private_key"
               required
             />

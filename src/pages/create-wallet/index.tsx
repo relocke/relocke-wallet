@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import Center from "../../components/Center/index";
 import ReLockeIcon from "../../icons/relocke-icon";
 import RelockeLogo from "../../icons/relocke-logo";
 import FormButton from "../../components/FormButton";
-import { useNavigate } from "react-router-dom";
 import Input from "../../components/Input";
 import Form from "../../components/Form";
-import Modal, { ModalProvider, ModalButton } from "../../components/Modal";
 
 import style from "./index.module.css";
 
@@ -33,7 +30,8 @@ export default function CreateNewWallet() {
       </nav>
       <div className={style.container}>
         <div>
-          <h1>Create New Wallet</h1>
+          <RelockeLogo />
+
           <Form action={handleCreateNew}>
             <Input
               minLength={6}

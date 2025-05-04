@@ -53,6 +53,7 @@ interface ModalButtonProps
 export function ModalButton({
   children,
   className,
+  onClick,
   ...props
 }: ModalButtonProps) {
   const context = useContext(Context);
@@ -64,7 +65,10 @@ export function ModalButton({
 
   return (
     <Button
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={() => {
+        onClick && onClick();
+        setIsOpen(!isOpen);
+      }}
       role="button"
       {...props}
       className={[styles.button, className ?? ""].join(" ")}

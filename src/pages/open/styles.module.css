@@ -6,8 +6,6 @@
   text-align: left;
   display: grid;
   place-items: center center;
-
-  color: hsl(var(--neutral-100));
   padding: var(--px-8);
 }
 .link {
@@ -16,27 +14,22 @@
   gap: var(--px-10);
 }
 
-.container2 {
-  padding: var(--px-32);
-}
 .container2 p {
   color: hsl(var(--grey-600));
   font-size: var(--px-16);
 }
-.container2 h1 {
+
+.h1 {
   font-size: var(--px-24);
   line-height: var(--line-height-medium);
-  margin: var(--px-4) 0 var(--px-20);
-}
-
-.container form input {
-  background: hsla(var(--base-300));
 }
 
 .container form {
   margin: var(--px-32) 0;
   display: flex;
   flex-direction: column;
+  max-width: var(--px-386);
+  width: 100%;
   gap: var(--px-8);
 }
 
@@ -76,7 +69,7 @@
 .nav {
   padding: var(--px-10) var(--px-24);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: var(--px-10);
   color: hsl(var(--neutral-800));
 }
@@ -88,4 +81,21 @@
 
 .flex a {
   background: var(--grey-100);
+}
+
+.img {
+  height: var(--px-64);
+}
+.center {
+  text-align: center;
+}
+
+.grid {
+  height: 80vh;
+  display: grid;
+  place-items: center center;
+}
+
+.grid > div {
+  width: 100%;
 }

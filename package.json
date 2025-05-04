@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently \"vite\" \"tsc -p tsconfig.main.json --watch\" \"wait-on tcp:5173 && cross-env NODE_ENV=development electron .\"",
     "build": "vite build && tsc -p tsconfig.main.json",
-    "icons": "electron-icon-builder --input=src/assets/app-icon.png --output=src/assets --flatten",
+    "icons": "electron-icon-builder --input=src/assets/icons/app-icon.png --output=src/assets --flatten",
     "package": "electron-builder"
   },
   "author": "pur3miish",

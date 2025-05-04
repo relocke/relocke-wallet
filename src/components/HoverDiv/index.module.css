@@ -4,7 +4,6 @@
   display: inline-block;
   background: hsla(var(--base-100));
   border-radius: var(--border-radius-8);
-  box-shadow: 0 0 5px hsla(var(--grey-900), var(--alpha-background-heavy));
 }
 
 @media (prefers-color-scheme: dark) {

@@ -9,6 +9,7 @@ interface WalletHookReturnType {
   isPending: boolean;
   password: string;
   success: string;
+  setSuccess: (bool: boolean) => Promise<void>;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
 }
 
@@ -77,5 +78,6 @@ export default function useWallet(): WalletHookReturnType {
     password,
     setPassword,
     success,
+    setSuccess,
   };
 }

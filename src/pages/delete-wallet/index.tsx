@@ -30,6 +30,7 @@ export default function DeteleWallet() {
         </p>
         <Form action={handleDelete}>
           <Input
+            className={styles.DeleteInput}
             required
             placeholder="I want to delete my wallet"
             onChange={(e) => {
