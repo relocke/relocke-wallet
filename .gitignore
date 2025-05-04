@@ -5,6 +5,9 @@ node_modules/
 dist/
 build/
 
+# But don't ignore build/protocols folder
+!build/protocols/
+
 # Vite cache
 .vite/
 
