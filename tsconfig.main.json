@@ -11,6 +11,6 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["node", "cors", "express", "node-forge"]
   },
-  "include": ["main/**/*", "main/**/*.d.ts"],
+  "include": ["main.ts", "main/**/*", "main/**/*.d.ts"],
   "exclude": ["node_modules"]
 }
