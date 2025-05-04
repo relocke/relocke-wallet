@@ -1,0 +1,9 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\relocke]
+@="URL:ReLocke Protocol"
+"URL Protocol"=""
+[HKEY_CLASSES_ROOT\relocke\shell]
+[HKEY_CLASSES_ROOT\relocke\shell\open]
+[HKEY_CLASSES_ROOT\relocke\shell\open\command]
+@="\"{appPath}\\ReLocke Wallet.exe\" \"%1\""
