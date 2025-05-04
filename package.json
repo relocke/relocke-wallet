@@ -57,7 +57,14 @@
       "output": "dist",
       "buildResources": "dist"
     },
-    "afterPack": "scripts/afterpack.js"
+    "afterPack": "scripts/afterpack.js",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "relocke",
+        "repo": "relocke-wallet"
+      }
+    ]
   },
   "dependencies": {
     "antelope-ecc": "^5.0.0-rc.2",
